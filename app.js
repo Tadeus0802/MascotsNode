@@ -8,6 +8,7 @@ const port = 3000;
 
 app.use(express.json());
 
+
 app.get("/", tips);
 app.get("/image", img);
 app.get("/animals", mascot);
@@ -15,7 +16,7 @@ app.get("/animals/owner", mascot);
 app.get("/animals/:id", mascot);
 app.put("/animals/edit/:id", mascot);
 app.put("/animals/owner/:id", mascot);
-
+app.post("/animals/add", mascot);
 
 
 app.listen(port,()=>{

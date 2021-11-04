@@ -3,6 +3,24 @@ const router = express.Router();
 const mysql = require("mysql2/promise");
 const fs = require("fs/promises");
 
+
+router.post("/animals/add", async (req,res)=>{
+    try {
+        const conect = await mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password:"",
+            database: "Mascots"
+        });
+        const [rows, fields] = await conect.execute("INSERT INTO mascots (name, age, animal, owner) VALUES (?, ?, ?, ?)", [req.body.name, req.body.age, req.body.animal, req.body.owner]);
+
+        conect.end();
+        return res.send(rows);
+    } catch (error) {
+        res.send(error);
+    }
+})
+
 //*SEE ALL ANIMALS
 router.get("/animals", async (req,res)=>{
     try {
