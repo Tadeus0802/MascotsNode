@@ -114,4 +114,38 @@ router.put("/animals/owner/:id", async (req,res)=>{
     }
 });
 
+//*EDIT ANIMALS TO THE ONES THAT GOT OWNERS
+router.put("/mascots/asign/:id", async (req,res)=>{
+    try {
+        const conect = await mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password:"",
+            database: "Mascots"
+        });
+        const [rows, fields] = await conect.execute("UPDATE mascots SET owner_id = ? WHERE mascots.id = ? ", [req.body.id, req.query.id]);
+        conect.end();
+        return res.send("UPDATED!");
+    } catch (error) {
+        res.send(error);
+    }
+})
+
+//*SEE ANIMALS BY OWNER ID
+router.get("/mascots/owners/:id", async (req,res)=>{
+    try {
+        const conect = await mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password:"",
+            database: "Mascots"
+        });
+        const [rows, fields] = await conect.execute("SELECT * FROM mascots WHERE owner_id = ?", [req.params.id]);
+        conect.end();
+        return res.send(rows);
+    } catch (error) {
+        res.send(error);
+    }
+})
+
 module.exports = router;
