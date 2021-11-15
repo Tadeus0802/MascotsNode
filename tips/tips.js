@@ -11,4 +11,14 @@ router.get("/", async (req,res)=>{
     }
 })
 
+router.post("/change", async (req,res)=>{
+    let newFile = req.body.change;
+    try {
+        const data = await fs.writeFile("./tips/tips.txt", newFile);
+        return res.send("Cambiado!")
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 module.exports = router;
