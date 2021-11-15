@@ -4,7 +4,7 @@
 
 **If you want to use this project you have to:
 
-##First thing you have to do is create a database with 3 tables (mascots, owner, users)
+## H2First thing you have to do is create a database with 3 tables (mascots, owner, users)
 
 - Mascots will have 6 columns = id, name, animal, age, owner, owner_id with owner_id being a foreign key of the id of the table owner and id being primary key
 - Owner will have 4 coulmns = id, name, lastname, age with id being primary key
