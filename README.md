@@ -1,6 +1,6 @@
 # MascotsNode
 
-* A normal api with Node about mascots, it includes the modules express, fs, nodemon, mysql2, crypto and also eslint. *
+> A normal api with Node about mascots, it includes the modules express, fs, nodemon, mysql2, crypto and also eslint. *
 
 ** If you want to use this project you have to: **
 
