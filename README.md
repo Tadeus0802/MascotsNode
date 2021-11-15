@@ -2,7 +2,7 @@
 
 > A normal api with Node about mascots, it includes the modules express, fs, nodemon, mysql2, crypto and also eslint. *
 
-** If you want to use this project you have to: **
+*If you want to use this project you have to:* 
 
 ## First thing you have to do is create a database with 3 tables (mascots, owner, users)
 
